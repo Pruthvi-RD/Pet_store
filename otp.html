@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OTP Verification - Pet Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f6f9fc, #e2e8f0);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .otp-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .otp-container h2 {
+      margin-bottom: 1rem;
+      color: #d2691e;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff914d;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e86c24;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="otp-container">
+    <h2>Enter OTP</h2>
+    <p>We’ve sent a code to your email and phone</p>
+    <form action="#">
+      <input type="text" placeholder="Enter OTP" required>
+    <a href="index.html"><button type="submit">Verify</button></a>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adopt a Pet - Pet Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdf7;
+    }
+
+    header {
+      background-color: #ff914d;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.2rem;
+    }
+
+    .card-body h3 {
+      margin-top: 0;
+      color: #d2691e;
+    }
+
+    .card-body p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .card-body button {
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .card-body button:hover {
+      background-color: #e86c24;
+    }
+
+    #adoption-info {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: #e0f7e9;
+      margin: 2rem auto;
+      max-width: 600px;
+      border-radius: 10px;
+      color: #2e7d32;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Adopt a Pet 🐾</h1>
+    <p>Find your new best friend today</p>
+  </header>
+
+  <div class="container">
+    <!-- Dog Card -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_1280.jpg" alt="Dog">
+      <div class="card-body">
+        <h3>Golden Retriever</h3>
+        <p><strong>Age:</strong> 1.5 Years</p>
+        <p><strong>Price:</strong> ₹8,000</p>
+        <button onclick="showInfo('Golden Retriever')">Adopt</button>
+      </div>
+    </div>
+
+    <!-- Cat Card -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2015/11/16/16/28/cat-1046544_1280.jpg" alt="Cat">
+      <div class="card-body">
+        <h3>Persian Cat</h3>
+        <p><strong>Age:</strong> 2 Years</p>
+        <p><strong>Price:</strong> ₹6,500</p>
+        <button onclick="showInfo('Persian Cat')">Adopt</button>
+      </div>
+    </div>
+
+    <!-- Rabbit Card -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/10/03/16/52/bunny-2816160_1280.jpg" alt="Rabbit">
+      <div class="card-body">
+        <h3>Dutch Rabbit</h3>
+        <p><strong>Age:</strong> 8 Months</p>
+        <p><strong>Price:</strong> ₹2,500</p>
+        <button onclick="showInfo('Dutch Rabbit')">Adopt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adoption Info -->
+  <div id="adoption-info">
+    <!-- Dynamic content appears here -->
+  </div>
+
+  <script>
+    function showInfo(petName) {
+      const box = document.getElementById('adoption-info');
+      box.innerHTML = `
+        🏠 You’ve selected <strong>${petName}</strong> for adoption!<br><br>
+        📍 <strong>Adoption Center:</strong> PetCare Rescue Home, 12th Cross, MG Road, Bengaluru<br>
+        🕒 <strong>Timings:</strong> 10:00 AM to 6:00 PM (Mon–Sat)<br><br>
+        ❤️ Please visit the center to complete your adoption process.
+      `;
+      box.style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

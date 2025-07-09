@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vet Appointment - Pet Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+    }
+
+    header {
+      background-color: #ff914d;
+      padding: 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tab-buttons button {
+      background-color: #ff914d;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .tab-buttons button.active {
+      background-color: #e86c24;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+
+    button.submit {
+      margin-top: 2rem;
+      background-color: #ff914d;
+      color: white;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button.submit:hover {
+      background-color: #e86c24;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Veterinary Appointment Booking</h1>
+    <p>Book a vet visit for your furry friend</p>
+  </header>
+
+  <div class="tab-buttons">
+    <button class="active" onclick="showTab('dog')">🐶 Dog</button>
+    <button onclick="showTab('cat')">🐱 Cat</button>
+    <button onclick="showTab('rabbit')">🐰 Rabbit</button>
+  </div>
+
+  <div class="form-container">
+
+    <!-- Dog Form -->
+    <form class="form-section active" id="dog">
+      <label for="dogName">Dog Name</label>
+      <input type="text" id="dogName" required>
+
+      <label for="dogBreed">Breed</label>
+      <input type="text" id="dogBreed" required>
+
+      <label for="dogAge">Age</label>
+      <input type="number" id="dogAge" required>
+
+      <label for="dogDate">Appointment Date</label>
+      <input type="date" id="dogDate" required>
+
+      <label for="dogTime">Time</label>
+      <input type="time" id="dogTime" required>
+
+      <label for="dogReason">Reason for Visit</label>
+      <textarea id="dogReason" rows="3" placeholder="e.g., Vaccination, Fever, Injury" required></textarea>
+
+      <button class="submit" type="submit">Book Appointment</button>
+    </form>
+
+    <!-- Cat Form -->
+    <form class="form-section" id="cat">
+      <label for="catName">Cat Name</label>
+      <input type="text" id="catName" required>
+
+      <label for="catBreed">Breed</label>
+      <input type="text" id="catBreed" required>
+
+      <label for="catAge">Age</label>
+      <input type="number" id="catAge" required>
+
+      <label for="catDate">Appointment Date</label>
+      <input type="date" id="catDate" required>
+
+      <label for="catTime">Time</label>
+      <input type="time" id="catTime" required>
+
+      <label for="catReason">Reason for Visit</label>
+      <textarea id="catReason" rows="3" placeholder="e.g., Deworming, Skin issues" required></textarea>
+
+      <button class="submit" type="submit">Book Appointment</button>
+    </form>
+
+    <!-- Rabbit Form -->
+    <form class="form-section" id="rabbit">
+      <label for="rabbitName">Rabbit Name</label>
+      <input type="text" id="rabbitName" required>
+
+      <label for="rabbitBreed">Breed</label>
+      <input type="text" id="rabbitBreed" required>
+
+      <label for="rabbitAge">Age</label>
+      <input type="number" id="rabbitAge" required>
+
+      <label for="rabbitDate">Appointment Date</label>
+      <input type="date" id="rabbitDate" required>
+
+      <label for="rabbitTime">Time</label>
+      <input type="time" id="rabbitTime" required>
+
+      <label for="rabbitReason">Reason for Visit</label>
+      <textarea id="rabbitReason" rows="3" placeholder="e.g., Teeth check, Hair loss" required></textarea>
+
+      <button class="submit" type="submit">Book Appointment</button>
+    </form>
+
+  </div>
+
+  <script>
+    function showTab(type) {
+      const buttons = document.querySelectorAll(".tab-buttons button");
+      const forms = document.querySelectorAll(".form-section");
+
+      buttons.forEach(btn => btn.classList.remove("active"));
+      forms.forEach(form => form.classList.remove("active"));
+
+      document.getElementById(type).classList.add("active");
+      event.target.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>

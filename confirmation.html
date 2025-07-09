@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Order Placed</title>
+    <style>
+      body{font:Arial;margin:0;padding:0;background:#f9f9f9;}
+      header{background:#ff914d;padding:1rem;text-align:center;color:#fff;}
+      .body{max-width:600px;margin:1rem auto;text-align:center;padding:1rem;background:#fff;border-radius:8px;}
+      .body p{font-size:1.1rem;}
+      .track{margin-top:1rem;color:#0288d1;cursor:pointer;}
+    </style></head><body>
+    <header><h1>Order Confirmed!</h1></header>
+    <div class="body">
+      <p>Your order (ID: <strong id="orderId"></strong>) has been placed.</p>
+      <p>Payment: <strong id="paymentMeth"></strong></p>
+      <p>Delivering to: <strong id="addressShow"></strong></p>
+      <div class="track" onclick="track()">Track Order</div>
+      <p id="tracking"></p>
+    </div>
+    <script>
+      document.getElementById('orderId').innerText = 'PID'+Date.now();
+      document.getElementById('paymentMeth').innerText = localStorage.getItem('payment');
+      document.getElementById('addressShow').innerText = localStorage.getItem('address');
+      function track(){
+        document.getElementById('tracking').innerText = 'Your order is out for delivery 🚚';
+      }
+    </script>
+    </body></html>
+    

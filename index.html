@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Store - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffefc;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background-color: #ffe8d6;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d2691e;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #d2691e;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 3rem;
+      background: linear-gradient(to right, #fffaf0, #fef6e4);
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      color: #d2691e;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hero-text button:hover {
+      background-color: #e66c2c;
+    }
+
+    .hero-image img {
+      width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin: 4rem 3rem;
+      text-align: center;
+    }
+
+    .feature {
+      flex: 1;
+      margin: 0 1rem;
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: #d2691e;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #ffe8d6;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-paw"></i> Pet Store</div>
+    <ul>
+      <li><a href="signup.html">Sign In</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="apointment.html">Appointments</a></li>
+      <li><a href="help.html">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to Your Pet’s Happy Place 🐾</h1>
+      <p>Explore top pet care services, adopt a loving pet, or book a vet appointment – all in one place.</p>
+      <button>Explore Now</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://i.ibb.co/wNMJgMy/pet-store-banner.jpg" alt="Pet Banner">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature">
+      <i class="fas fa-dog"></i>
+      <a href="adopt.html"><h3>Adopt Pets</h3></a>
+      <p>Find the perfect furry companion ready to be a part of your family.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-user-md"></i>
+     <a href="vet.html"> <h3>Vet Appointments</h3></a>
+      <p>Book your appointment with our experienced veterinarians.</p>
+    </div>
+    <div class="feature">
+      <i class="fas fa-shopping-cart"></i>
+     <a href="shop.html"> <h3>Shop Accessories</h3></a>
+      <p>Browse high-quality food, toys, and grooming items.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Pet Store. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

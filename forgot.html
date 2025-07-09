@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password - Pet Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .forgot-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    .forgot-container h2 {
+      margin-bottom: 1.5rem;
+      color: #d2691e;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff914d;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e86c24;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="forgot-container">
+    <h2>Reset Your Password</h2>
+    <form action="otp.html">
+      <input type="email" placeholder="Enter your email" required><br>
+      <input type="tel" placeholder="Enter your phone number" required><br>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+</body>
+</html>

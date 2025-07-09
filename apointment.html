@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Appointment - Pet Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fff8f0;
+      padding: 0 2rem;
+    }
+
+    header {
+      background-color: #ff914d;
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    form {
+      background: white;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #d2691e;
+      margin-top: 0;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin: 2rem auto 0;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e86c24;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Book a Pet Service Appointment</h1>
+  </header>
+
+  <form onsubmit="submitAppointment(event)">
+    <div class="section">
+      <h2>Choose a Service</h2>
+      <select id="service" required>
+        <option value="">-- Select a Service --</option>
+        <option>Pet Grooming</option>
+        <option>Veterinary Services</option>
+        <option>Pet Training</option>
+        <option>Pet Adoption Assistance</option>
+        <option>Online Appointments</option>
+        <option>Home Delivery</option>
+        <option>Pet Accessories</option>
+        <option>Fish Tank & Cage Setup</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h2>Pet Information</h2>
+      <label for="animal">Animal Type</label>
+      <input type="text" id="animal" placeholder="e.g. Dog, Cat" required>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Time</label>
+      <input type="time" id="time" required>
+
+      <label for="package">Select Package</label>
+      <select id="package" required>
+        <option value="">-- Choose Package --</option>
+        <option>Basic</option>
+        <option>Medium</option>
+        <option>Luxury</option>
+      </select>
+    </div>
+
+    <button type="submit">Confirm Appointment</button>
+  </form>
+
+  <script>
+    function submitAppointment(e) {
+      e.preventDefault();
+      const animal = document.getElementById("animal").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const service = document.getElementById("service").value;
+      const pack = document.getElementById("package").value;
+
+      const data = {
+        animal, date, time, service, pack
+      };
+
+      // Save in localStorage to pass to homepage
+      localStorage.setItem("appointmentInfo", JSON.stringify(data));
+
+      // Redirect
+      window.location.href = "home_reminder.html";
+    }
+  </script>
+
+</body>
+</html>

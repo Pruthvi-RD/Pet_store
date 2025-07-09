@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><title>Address - Pet Store</title>
+  <style>
+    body{font:Arial;margin:0;padding:0;background:#f9f9f9;}
+    header{background:#ff914d;color:#fff;padding:1rem;text-align:center;}
+    .form{max-width:500px;margin:1rem auto;background:#fff;padding:1rem;border-radius:8px;}
+    input,button{width:100%;padding:0.7rem;margin:0.5rem 0;font-size:1rem;}
+    #map{height:300px;width:100%;background:#ddd;margin-top:1rem;display:none;}
+  </style>
+</head>
+<body>
+  <header><h1>Delivery Address</h1></header>
+  <div class="form">
+    <label>Name</label><input id="name">
+    <label>Address Line</label><input id="addr">
+    <label>PIN Code</label><input id="pin">
+    <button onclick="showMap()">Confirm Address</button>
+    <div id="map"></div>
+    <button id="toPay" onclick="toPay()" style="display:none;">Proceed to Payment</button>
+  </div>
+
+  <script>
+    function showMap(){
+      if(!document.getElementById('addr').value) return alert('Enter address');
+      document.getElementById('map').style.display='block';
+      document.getElementById('map').innerText=`📍 ${document.getElementById('addr').value}, PIN ${document.getElementById('pin').value}`;
+      document.getElementById('toPay').style.display='block';
+      localStorage.setItem('address',document.getElementById('addr').value);
+    }
+    function toPay(){ window.location='payment.html'; }
+  </script>
+</body>
+</html>

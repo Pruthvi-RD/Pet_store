@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Store - Appointment Scheduled</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fefefe;
+    }
+
+    .reminder {
+      background-color: #e0f7e9;
+      color: #2e7d32;
+      padding: 1.2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    header {
+      background-color: #ff914d;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .home-content {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .home-content h2 {
+      font-size: 2rem;
+      color: #d2691e;
+    }
+
+    .home-content p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reminder" id="appointmentReminder">
+    <!-- Appointment info goes here -->
+  </div>
+
+  <header>
+    <h1>Welcome to Pet Store 🐾</h1>
+  </header>
+
+  <div class="home-content">
+    <h2>Thank You for Booking!</h2>
+    <p>Explore more services, accessories, and products designed with love for your pets. Our team is ready to serve you.</p>
+  </div>
+
+  <script>
+    const info = JSON.parse(localStorage.getItem("appointmentInfo"));
+
+    if (info) {
+      document.getElementById("appointmentReminder").innerText =
+        `📅 You have booked ${info.service} for your ${info.animal} on ${info.date} at ${info.time} (${info.pack} package).`;
+    } else {
+      document.getElementById("appointmentReminder").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

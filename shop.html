@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Store Shopping</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; }
+    header { background:#ff914d; color:#fff; padding:1rem; text-align:center; }
+    .pin-input { text-align:center; margin:1rem 0; }
+    .pin-input input { width:120px; padding:0.5rem; font-size:1rem; }
+    .catalog { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; padding:1rem; }
+    .card { background:#fff; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); padding:1rem; position:relative;text-align:center; }
+    .card img { height:120px; object-fit:cover; }
+    .card h4 { margin:0.5rem 0; }
+    .card p { margin:0.3rem 0; font-size:0.9rem; }
+    .card button { background:#ff914d; color:#fff; border:none;padding:0.5rem 1rem;cursor:pointer; border-radius:5px; }
+    .card button:hover { background:#e86c24; }
+  </style>
+</head>
+<body>
+  <header><h1>Pet Store • Shop</h1></header>
+  <div class="pin-input">
+    <label>Enter PIN code: <input id="pin" type="text" maxlength="6"></label>
+    <button onclick="updateDelivery()">Check Delivery Dates</button>
+  </div>
+  <div class="catalog" id="catalog"></div>
+
+  <script>
+    const products = [];
+    const types = ['Food','Toy','Groom'];
+    for(let i=1;i<=24;i++) {
+      products.push({
+        id:i,
+        name:`Pet ${types[i%3]} #${i}`,
+        price: (200 + (i*10)),
+        img:`https://picsum.photos/seed/${i}/200/120`
+      });
+    }
+
+    function updateDelivery() {
+      const pin = document.getElementById('pin').value;
+      if(pin.length !== 6){ alert('Enter valid 6-digit PIN'); return; }
+      document.querySelectorAll('.delivery').forEach(el=>{
+        const days = 3 + Math.floor(Math.random()*5);
+        el.innerText = `Delivery in ${days}–${days+1} days`;
+      });
+    }
+
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+      cart.push(products.find(p=>p.id===id));
+      localStorage.setItem('cart',JSON.stringify(cart));
+      window.location='cart.html';
+    }
+
+    const cat = document.getElementById('catalog');
+    products.forEach(p=>{
+      const d = document.createElement('div'); d.className='card';
+      d.innerHTML=`
+        <img src="${p.img}">
+        <h4>${p.name}</h4>
+        <p>₹${p.price}</p>
+        <p class="delivery">Delivery date ?</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      `;
+      cat.appendChild(d);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - Pet Store</title>
+  <style>
+    body { font-family:Arial, sans-serif; background:#f9f9f9; margin:0; padding:0;}
+    header { background:#ff914d; color:#fff; padding:1rem; text-align:center; }
+    .cart { max-width:800px; margin:1rem auto; background:#fff; padding:1rem; border-radius:8px; }
+    .item { display:flex; align-items:center; margin:0.5rem 0; }
+    .item img { height:80px; margin-right:1rem; }
+    .checkout { text-align:right; margin-top:1rem; }
+    .checkout button { background:#ff914d;color:#fff;border:none;padding:0.7rem 1.5rem;cursor:pointer;border-radius:5px; }
+  </style>
+</head>
+<body>
+  <header><h1>Your Cart</h1></header>
+  <div class="cart" id="cartList"></div>
+  <div class="checkout" id="checkout"></div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+    const container = document.getElementById('cartList');
+    let total = 0;
+    cart.forEach(p=>{
+      total += p.price;
+      const div = document.createElement('div'); div.className='item';
+      div.innerHTML=`<img src="${p.img}"><div>${p.name}<br>₹${p.price}</div>`;
+      container.appendChild(div);
+    });
+    document.getElementById('checkout').innerHTML=`
+      <p><strong>Total: ₹${total}</strong></p>
+      <button onclick="toAddress()">Proceed to Address</button>
+    `;
+
+    function toAddress(){
+      localStorage.setItem('total',total);
+      window.location='address.html';
+    }
+  </script>
+</body>
+</html>
